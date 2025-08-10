@@ -1,7 +1,16 @@
+"use client";
 import Head from 'next/head';
 import Header from '../components/layout/Header';
+import Sidebar from '@/components/layout/Sidebar';
+import ChatWindow from '@/components/chats/ChatWindow';
+import { useState } from 'react';
+
 
 export default function Home() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
     <div>
       <Head>
@@ -12,10 +21,17 @@ export default function Home() {
       <Header />
 
       <main className="max-w-4xl mx-auto p-6">
-        <section className="bg-white rounded shadow p-6">
-          <h1 className="text-2xl font-bold mb-4">Welcome</h1>
-          <p className="text-gray-600">This is the home page. Team members can start building features from here.</p>
-        </section>
+        <Sidebar isOpen={sidebarOpen} />
+        <div className="flex-1 relative">
+          {/* Toggle Button */}
+          <button
+            onClick={toggleSidebar}
+            className="absolute top-0 left-0 z-10 p-2 bg-gray-200 text-black rounded shadow hover:bg-gray-300"
+          >
+            {sidebarOpen ? '←' : '→'}
+          </button>
+        </div>
+        <ChatWindow />
       </main>
     </div>
   );
