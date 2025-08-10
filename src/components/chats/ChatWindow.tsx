@@ -4,7 +4,7 @@ import ChatInput from './ChatInput';
 
 const sampleMessages: Message[] = [
   { id: '1', role: 'bot', type: 'text', content: 'Hello!' },
-  { id: '2', role: 'bot', type: 'image', content: 'https://placekitten.com/300/200' },
+  { id: '2', role: 'bot', type: 'image', content: 'ahihi' },
   {
     id: '3',
     role: 'bot',
